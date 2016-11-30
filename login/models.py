@@ -9,8 +9,8 @@ class Login(models.Model):
     username = models.CharField(max_length=25)
     password = models.CharField(max_length=10)
 
-class SignIn(models.Model):
+class Register(models.Model):
 
-    username = models.CharField(max_length=25)
-    password = models.CharField(max_length=10)
-    repeat_password = models.CharField(max_length=10)
+    register_username = models.CharField(max_length=25)
+    register_password = models.CharField(max_length=10)
+    register_repeat_password = models.CharField(max_length=10)
