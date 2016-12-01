@@ -21,12 +21,40 @@
 </form>
 {% endblock %}
 
+{% block javascript %}
+  <script>
+    $("#Register_Username").change(function () {
+      var username = $(this).val();
+
+      $.ajax({
+        url: '/ajax/validate_username/',
+        data: {
+          'username': username
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.is_taken) {
+            $('#username_error').text("User name already exist")
+            $('#register_button').addClass('button-notdisplay');
+          }
+          else{
+            $('#username_error').text("")
+            $('#register_button').removeClass('button-notdisplay');
+          }
+        }
+      });
+
+    });
+  </script>
+{% endblock %}
+
 {% block register %}
-<form method="POST">
+<form method="POST" id="form">
     {% csrf_token %}
     <div class="input-container">
-        <input type="text" id="Register Username" name="register_username" required="required"/>
+        <input type="text" id="Register_Username" name="register_username" required="required"/>
         <label for="Username">Username</label>
+        <p id="username_error" class="error-username"></p>
         <div class="bar"></div>
     </div>
     <div class="input-container">
@@ -40,7 +68,11 @@
         <div class="bar"></div>
     </div>
     <div class="button-container">
-        <button type="submit" name="type" value="register"><span>Next</span></button>
+        <button id="register_button" type="submit" name="type" value="register">Next</button>
     </div>
 </form>
+
+<!--<div class="alert alert-warning" id="warning_alert">-->
+  <!--<strong>Warning!</strong> User name already exist-->
+<!--</div>-->
 {% endblock %}
