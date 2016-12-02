@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout
 from django.core.urlresolvers import reverse
 from django.http import JsonResponse, HttpResponse, HttpResponsePermanentRedirect
 from django.db import IntegrityError
 from .forms import LoginForm
 from .forms import RegisterForm
+
 
 # Create your views here.
 
@@ -38,7 +39,10 @@ def login(request):
                 else:
                     return render(request, 'login/page_not_found.html', {})
     else:
-        return render(request, 'login/login_forms.html', {})
+        if request.user.is_authenticated():
+            return HttpResponsePermanentRedirect(reverse('my_profile:profile'))
+        else:
+            return render(request, 'login/login_forms.html', {})
 
 def validate_username(request):
     username = request.GET.get('username', None)
@@ -47,3 +51,9 @@ def validate_username(request):
     }
     return JsonResponse(data)
 
+def signout(request):
+    print "^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    if request.user.is_authenticated():
+        print "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+        logout(request)
+        return render(request, 'login/login_forms.html', {})
