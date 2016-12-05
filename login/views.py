@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth import authenticate, login as auth_login
 from django.core.urlresolvers import reverse
-from django.http import JsonResponse, HttpResponse, HttpResponsePermanentRedirect
+from django.http import JsonResponse, HttpResponse, HttpResponsePermanentRedirect, HttpResponseRedirect
 from django.db import IntegrityError
 from .forms import LoginForm
 from .forms import RegisterForm
@@ -51,9 +51,10 @@ def validate_username(request):
     }
     return JsonResponse(data)
 
-def signout(request):
-    print "^^^^^^^^^^^^^^^^^^^^^^^^^^"
-    if request.user.is_authenticated():
-        print "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
-        logout(request)
-        return render(request, 'login/login_forms.html', {})
+# def signout(request):
+#     if request.user.is_authenticated():
+#         logout(request)
+#         return HttpResponseRedirect('/')
+#     else:
+#         return HttpResponseRedirect('/')
+
