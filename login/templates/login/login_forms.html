@@ -21,32 +21,32 @@
 </form>
 {% endblock %}
 
-{% block javascript %}
-  <script>
-    $("#Register_Username").change(function () {
-      var username = $(this).val();
+<!--{% block javascript %}-->
+  <!--<script>-->
+    <!--$("#Register_Username").change(function () {-->
+      <!--var username = $(this).val();-->
 
-      $.ajax({
-        url: '/ajax/validate_username/',
-        data: {
-          'username': username
-        },
-        dataType: 'json',
-        success: function (data) {
-          if (data.is_taken) {
-            $('#username_error').text("User name already exist")
-            $('#register_button').addClass('button-notdisplay');
-          }
-          else{
-            $('#username_error').text("")
-            $('#register_button').removeClass('button-notdisplay');
-          }
-        }
-      });
+      <!--$.ajax({-->
+        <!--url: '/ajax/validate_username/',-->
+        <!--data: {-->
+          <!--'username': username-->
+        <!--},-->
+        <!--dataType: 'json',-->
+        <!--success: function (data) {-->
+          <!--if (data.is_taken) {-->
+            <!--$('#username_error').text("User name already exist")-->
+            <!--$('#register_button').addClass('button-notdisplay');-->
+          <!--}-->
+          <!--else{-->
+            <!--$('#username_error').text("")-->
+            <!--$('#register_button').removeClass('button-notdisplay');-->
+          <!--}-->
+        <!--}-->
+      <!--});-->
 
-    });
-  </script>
-{% endblock %}
+    <!--});-->
+  <!--</script>-->
+<!--{% endblock %}-->
 
 {% block register %}
 <form method="POST" id="form">

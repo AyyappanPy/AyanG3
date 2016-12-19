@@ -6,3 +6,8 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/')
 def profile(request):
     return render(request, 'my_profile/profile_menus.html', {})
+
+
+@login_required(login_url='/')
+def edit_profile(request):
+    return render(request, 'my_profile/edit_profile.html', {})

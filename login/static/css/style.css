@@ -450,8 +450,65 @@ body {
   pointer-events: none !important;
 
 }
+/*
 .error-username{
     position: absolute;
     top: -11%;
     left: 36%;
     color: #000;}
+*/
+
+/* Alert Message */
+
+.growl-container.growl-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.growl-container.growl-fixed.top-right {
+  top: 10px;
+  right: 15px;
+}
+
+.growl-container > .growl-item {
+  padding: 10px;
+  padding-right: 35px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.growl-container > button {
+  border: none;
+  outline:none;
+}
+
+.growl-container > div.growl-item {
+  background-position: 12px center;
+  background-repeat: no-repeat;
+}
+
+/*
+ * growl-title styles
+ */
+.growl-title {
+  font-size: 16px;
+}
+
+.growl-item.icon > .growl-title {
+  margin: 0 0 0 40px;
+}
+
+/*
+ * growl-message styles
+ */
+.growl-item.icon > .growl-message {
+  margin: 0 0 0 40px;
+}
+
+.growl-container > .alert-error.icon {
+	background-color: #ed2553;
+	color:#fff;
+}
+
+/* Alert Message End */
