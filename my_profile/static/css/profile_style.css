@@ -1983,7 +1983,7 @@ span.border.two:after {
 
 
 /* CodePen */
-#edit-profile {
+/* #edit-profile {
   bottom: 96px;
   right: 36px;
   background: #ed2553;
@@ -1994,4 +1994,23 @@ span.border.two:after {
 }
 #edit-profile i {
   line-height: 44px;
+}
+*/
+#edit-profile {
+    position: fixed;
+    top:10%;
+    right: 2%;
+    background: #00a78e;
+    width: 44px;
+    height: 44px;
+    -webkit-animation: buttonFadeInUp 1s ease;
+    animation: buttonFadeInUp 1s ease;
+    border-radius: 50%;
+    color: #fff;
+    z-index:1;
+    box-shadow: 1px 2px 6px #000000;
+}
+#edit-profile i {
+  line-height: 44px;
+  padding-left: 14px;
 }

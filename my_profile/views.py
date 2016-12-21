@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .models import EditProfile
+from .forms import EditProfileForm
 
 # Create your views here.
 

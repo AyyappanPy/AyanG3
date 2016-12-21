@@ -79,3 +79,13 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Ayan - Theme Color Change */
+
+label {
+    color: #00a78e;
+}
+.well {
+    color: #00a78e !important;
+    background-color: #fff !important;
+}
